@@ -1,0 +1,24 @@
+
+<html>
+    <head>
+    
+    </head>
+    <body>
+  
+   focus <input onfocus="demo1(this)"   type="text"/>
+   <p id="p1"></p> <br><br>   
+  blur  <input onblur="demo2(this)"   type="text"/> 
+    <p id="p2"></p>
+
+    <script>
+        function demo1(x)
+        {
+         document.querySelector("#p1").innerText=x.value
+        }
+        function demo2(x)
+        {
+            document.querySelector("#p2  ").innerText=x.value
+        }
+        </script>
+    </body>
+    </html>

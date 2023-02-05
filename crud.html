@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud</title>
+    <link href="./css/all.css" rel="stylesheet"/>
+    <link href="./css/bootstrap.css" rel="stylesheet"/>
+    <script src="./js/bootstrap.bundle.js"></script>
+    <style>
+      .b{
+margin-bottom: 3%;
+
+        }
+    </style>
+</head>
+<body onload="show()">
+  <div class="container-fluid">
+<div class="col-sm-4 mx-auto"><br>
+    <input type="text" id="name" placeholder="name"   class="form-control b"> 
+    <input type="hidden" id="index"  class="form-control b">  
+    <input type="email" id="email" placeholder="email" class="form-control b"> 
+    <input type="text" id="mobno" placeholder="mobile" class="form-control b"> 
+    <input type="text" id="city" placeholder="city" class="form-control b"> 
+    <input type="file" id="fu" class="form-control b"> <br>
+    <img id="im" height="30px"/>
+    <input type="button" value="Save" onclick="add()" id="btn"  class="btn btn-info"/> <br><br>
+    
+</div>
+
+<br>
+
+</div>
+<div class="input-group w-25 mx-auto">
+  <input type="text " placeholder="type here" onkeyup="dataSearch(this)" class="form-control"/>
+  <i class="input-group-text" > Search</i></div><br><div id="as"></div>
+<div id="tbl"></div>
+  </div> 
+  <script>
+     var Name=document.querySelector("#name")
+var Mobile=document.querySelector("#mobno")
+var Email=document.querySelector("#email")
+var City=document.querySelector("#city")
+var Picture=document.querySelector("#fu")
+var btn=document.querySelector("#btn")
+ 
+
+function add(){
+  if( btn.value=="Save"){ 
+    var file=Picture.value.split('\\').pop()
+var newObj={
+Name:Name.value,
+Mobile:Mobile.value,
+City:City.value,
+Email:Email.value,
+Picture:file, 
+}
+
+var data=JSON.parse(window.localStorage.getItem("students"))
+if(data==null)
+data=[newObj]
+else
+data.push(newObj)
+window.localStorage.setItem("students", JSON.stringify(data));
+ }
+ else if(btn.value=="Update"){
+var data=JSON.parse(window.localStorage.getItem("students"))
+var index=document.querySelector("#index").value
+var file1=Picture.value.split('\\').pop()
+  data[index].Name=Name.value
+  data[index].Email=Email.value
+  data[index].Mobile=Mobile.value
+  data[index].City=City.value
+ data[index].Picture=file1
+  window.localStorage.setItem('students',JSON.stringify(data))
+ btn.value="Save"
+ }
+show()
+}
+
+function show(){
+  var data=JSON.parse(window.localStorage.getItem("students"))
+///data=data.reverse()
+var res="<table class='table table-hover'><tr class='table table-hover table-dark'><td>Sr.No.</td><td>NAME</td><td>EMAIL</td><td>MOBILE</td><td>CITY</td><td>PIC</td><td>EDIT</td><td>DELETE</td></tr>"
+  data.forEach((data,index)=>{
+
+    var ind="Techpile-ST2200"+index
+res+=`<tr> 
+  <td>${ind}</td>
+  <td>${data.Name}</td>
+  <td>${data.Email}</td>
+  <td>${data.Mobile}</td>
+   
+
+  <td>${data.City}</td>
+  <td><img src="images/${data.Picture}" height="30px" width="30px" alt="hey  path glt hai "/></td>
+  <td><p onclick="edit(${index})">Edit</p></td>
+  <td><p onclick="del(${index})">Delete</p></td>
+  </tr>`
+
+  })
+res+="</table>"
+document.querySelector("#tbl").innerHTML=res
+}
+function del(x){
+ 
+ if(window.confirm("Are u want 2 del")) {
+  var data=JSON.parse(window.localStorage.getItem("students"))
+  data.splice(x,1)
+  window.localStorage.setItem("students",JSON.stringify(data))
+  show()
+ }
+}
+
+function dataSearch(x){
+ 
+  var data1=JSON.parse(window.localStorage.getItem("students"))
+
+var res="<table  class='table table-hover'><tr class='table table-hover table-success ' ><td>Sr.No.</td><td>NAME</td><td>EMAIL</td><td>MOBILE</td><td>CITY</td><td>PIC</td> </tr>"
+  data1.forEach((data,index)=>{
+    if(index.toString().includes(x.value.trim())==true ){
+res+=`<tr>
+  <td>${index}</td>
+  <td>${data.Name}</td>
+  <td>${data.Email}</td>
+  <td>${data.Mobile}</td>
+
+  <td>${data.City}</td>
+  <td><img src="images/${data.Picture}" height="70px" alt="hey path error!"/></td>
+  
+  </tr>`
+  } 
+   
+  })
+res+="</table>"
+document.querySelector("#as").innerHTML=res
+
+
+}
+
+function edit(index){
+  
+  var data1=JSON.parse(window.localStorage.getItem("students"))
+  ind=data1[index]
+  Name.value=data1[index].Name
+ Mobile.value=data1[index].Email
+ City.value=data1[index].Mobile
+ Email.value=data1[index].City
+ document.querySelector("#im").src=`images/${data1[index].Picture}`
+btn.value="Update"
+document.querySelector("#index").value=index
+}
+
+  </script> 
+</body>
+</html>

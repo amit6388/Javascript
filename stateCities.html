@@ -1,0 +1,42 @@
+<html>
+    <head></head>
+    <body>
+        <p>nkl</p>
+        <b>kll</b>
+<script>
+var MyState=["up","mp","bihar"]
+var ddl="<select onchange='myCity(this)'>"
+for(var x of MyState){
+    ddl=ddl+"<option>"+x+"</option>"
+}
+ddl=ddl+"</select>"
+document.querySelector("p").innerHTML=ddl
+
+function myCity(a){
+    var ucity=["lko","varansi","kanpur"]
+    var mcity=["bhopal","satna","satna"]
+    var bcity=["aara","chhapra","patna"]
+    var city="<select>"
+        if(a.value=="up"){
+            for(var x of ucity){
+                city+="<option>"+x+"</opyion>"
+            }
+        }
+        else if(a.value=="mp"){
+            for(var x of mcity){
+                city+="<option>"+x+"</opyion>"
+            }
+        }
+        else if(a.value=="bihar"){
+            for(var x of bcity){
+                city+="<option>"+x+"</opyion>"
+            }
+        }
+
+city+="</select>"
+
+document.querySelector("b").innerHTML=city
+}
+</script>
+    </body>
+</html>

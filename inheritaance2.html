@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class test{
+    constructor(name,age){
+        this.Name=name
+        this.age=age
+    }
+    showData1(){
+ return ` 
+Name:${this.Name}
+Age:${this.age} 
+`
+
+    }
+} 
+class child extends test{
+    constructor(name,age,Salary){
+      super(name,age)
+        this.Salary=Salary
+    }
+    showData2(){
+        
+console.log( `
+${super.showData1()}
+ 
+Salary:${this.Salary} 
+`)
+
+    }
+} 
+
+
+
+
+
+class b extends child{
+    
+    showData3(){
+      this.p=500  
+console.log( `
+${super.showData2()}
+ 
+Salary:${this.p} 
+`)
+
+    }
+} 
+
+
+
+var obj=new b("amit",34,88999)
+obj.showData3()
+
+
+    </script>
+</body>
+</html>

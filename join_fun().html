@@ -1,0 +1,26 @@
+<html><head></head>
+<body>
+    <input type="text"  onkeyup="demo()"   />
+    <p></p>
+
+    <input type="button" onclick="demo()" value="convert" />
+    <script>
+
+    function demo(){
+var v=document.querySelector("input").value
+
+var arr=v.split(" ")
+var arr1=arr.map((data)=>{
+return data[0].toUpperCase()+data.slice(1).toLowerCase()
+
+}) 
+
+document.querySelector("p").innerText=arr1.join(" ")
+document.querySelector("input").value=arr1.join(" ")
+
+    }
+    
+  
+  </script>
+</body>
+</html>

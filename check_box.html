@@ -1,0 +1,32 @@
+
+<html>
+    <head>
+<style>
+  
+</style>
+    </head>
+<body id="body">
+    I accepted <b style="color: green;">Term & conditions</b> <input type="checkbox" ><br>
+     <button disabled>Save</button>
+     <script>
+        
+var input=document.querySelector("input")
+input.addEventListener("change",demo)
+
+
+
+ function demo(){
+    var btn=document.querySelector("button")
+    var x=document.querySelector("input")
+   if(x.checked==true){
+btn.removeAttribute("disabled")
+
+   }
+   else{
+    btn.setAttribute("disabled","disabled")
+   }
+                 }
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class test{
+    constructor(){
+         console.log("hello 1 from test class")
+    }
+    showData1(){
+ 
+        console.log("good morning test se hu")
+    }
+} 
+class child1 extends test{
+    constructor(){
+      super()
+      console.log("welcome in child 1 constructor")
+    }
+    showData2(){
+        
+console.log( `
+ wellcome child 1 show data 2
+`)
+
+    }
+} 
+class child2 extends test{
+    constructor(){
+      super()
+      console.log("welcome in child 2 constructor")
+    }
+    showData3(){
+        
+console.log( `
+ wellcome child 2 show data3
+`)
+
+    }
+} 
+
+
+
+var obj=new child1( )
+obj.showData2()
+obj.showData1()
+
+var obj=new child2( )
+obj.showData3()
+obj.showData1()
+    </script>
+</body>
+</html>

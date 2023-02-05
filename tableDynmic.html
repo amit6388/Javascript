@@ -1,0 +1,27 @@
+
+<html>
+    <head>
+        
+    </head>
+    <body >
+    
+        <div  id="p1" style="margin: 100px auto;"></div>
+         
+    
+    
+    
+    <script>
+    var arr=["AMIT","KUMAR","SINGH","SURYA","CHAUHAN","RAJ"];
+    var res="<table><hr/>";
+    arr.forEach(function(x){
+        res=res+"<tr><td>"+x+"</td><td>"+x+"</td><td><input type='button' value='EDIT' style='background:green;border:none; height:25px;color:white;border-radius:4px;' /> <input type='button' value='SUBMIT' style='background:red;border:none;border-radius:4px; height:25px;color:white;' /> </td></tr>"
+    
+    })
+    res=res+"</table><hr/>" 
+     
+     document.querySelector("#p1").innerHTML=res
+     
+             
+        </script>
+    </body>
+    </html>

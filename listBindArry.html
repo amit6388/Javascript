@@ -1,0 +1,53 @@
+var arr=[5]
+     for(var i=0;i<5;i++){
+ 
+ 
+x= prompt("enter the alue")
+ arr[i]=x
+
+     }
+
+
+
+
+     
+<html>
+     <head>
+          <script>
+               function demo()
+               {
+                    var arr=[10]
+     for(var i=0;i<10;i++){
+ 
+ 
+x= prompt("enter the alue")
+ arr[i]=x
+
+     }
+               var color=["red","green","yellow","pink","maroon","orange","navy","maroon","orange","navy","aqua"];
+               var l=document.getElementById("list");
+               var res="<select id='ddl' onchange='demo1()'>";
+                var d=0
+               for(i=0;i<10;i++)
+               {
+                    res=res+"<option style='background:"+color[i]+";color:"+color[d+1]+";'>"+arr[i]+"</option>";
+                    d++
+               }
+               res=res+"</select>";
+               document.write(res)
+               }
+               
+               
+               function demo1()
+               {
+                    var y=document.getElementById("ddl").value;
+                    var a=document.getElementById("h");
+                    document.write(y);
+                    }
+          </script>
+     </head>
+     <body onload="demo()">
+          <h1 id="h"></h1>
+     
+     </body>
+     </html>

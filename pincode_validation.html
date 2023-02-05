@@ -1,0 +1,29 @@
+
+<html>
+<head>
+<script>
+function demo()
+{
+var a=document.getElementById("txt");
+var b=document.getElementById("b1");
+if(a.value.length==6)
+{
+b.innerText="VALID PINCODE";
+a.style.border="5px solid green";
+b.style.color="green";
+}
+else
+{
+b.innerText="INVALID PINCODE";
+a.style.border="5px solid red";
+b.style.color="red";
+}
+}
+</script>
+</head>
+<body>
+PINCODE
+<input onkeyup="demo()" id="txt" type="number"/>&nbsp;&nbsp;&nbsp;
+<b id="b1"></b>
+</body>
+</html>

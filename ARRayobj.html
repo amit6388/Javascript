@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/all.css" rel="stylesheet"/>
+    <link href="./css/bootstrap.css" rel="stylesheet"/>
+    <script src="./js/bootstrap.bundle.js"></script>
+</head>
+<body><p></p>
+    <div class="input-group w-25 mx-auto">
+        <input type="text " placeholder="type here" onkeyup="dataSearch(this)" class="form-control"/>
+        <i class="input-group-text" > Search</i>
+
+    </div>
+<br><br><br>
+    <div id="a"></div>
+    <script>
+ var st=[
+{
+    Name:"amit",
+    age:34,
+    branch:"cse",
+    city:"lko",
+    pic:"a.jpg"
+
+},
+{
+    Name:"rohit",
+    age:34,
+    branch:"civil",
+    city:"lko",
+    pic:"b.jpg"
+},
+{
+    Name:"sumit",
+    age:34,
+    branch:"ctf",
+    city:"lko",
+    pic:"c.jpg"
+},
+{
+    Name:"dhanno",
+    age:34,
+    branch:"ee",
+    city:"lko",
+    pic:"d.jpg"
+},
+
+ ]
+tbl="<table border='1' class='table table-hover table-dark'><tr><th>Name</th><th>Age</th><th>Branch</th><th>City</th><th>Pic</th></tr>"
+st.forEach((data)=>{
+tbl+=`<tr><td>${data.Name}  </td><td> ${data.age} </td><td> ${data.branch} </td><td>${data.city} </td><td><img src="images/${data.pic}"  height="70px" width="70px" alt="dg"/> </td> </tr>` 
+})
+
+tbl+="</table>"
+ document.querySelector("p").innerHTML=tbl
+ function dataSearch(x){
+
+    tbl="<table border='1' class='table table-hover ' ><tr class='table table-hover table-dark'><th>Name</th><th>Age</th><th>Branch</th><th>City</th><th>Pic</th></tr>"
+st.forEach((data)=>{
+if( x.value.toLowerCase()==data.Name.toLowerCase() || x.value.toLowerCase()==data.branch.toLowerCase() || x.value.toLowerCase()==data.city.toLowerCase())
+{
+tbl+=`<tr><td>${data.Name}  </td><td> ${data.age} </td><td> ${data.branch} </td><td>${data.city} </td><td><img src="images/${data.pic}"  height="70px" width="70px" alt="dg"/> </td> </tr>` 
+}
+
+
+})
+
+tbl+="</table>"
+ document.querySelector("#a").innerHTML=tbl
+
+
+
+
+
+
+
+
+
+
+ }
+    </script>
+    
+</body>
+</html>

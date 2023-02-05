@@ -1,0 +1,49 @@
+
+<html>
+    <head>
+        <style>
+h1{
+
+    font-size: 80px;
+    padding: 50px;
+    text-align: center;
+}
+.a{
+    color: red;
+    background: yellow;
+}
+.b{
+    color: yellow;
+    background: red;
+}
+
+        </style>
+    </head>
+    <body><center>
+    
+    
+      
+
+     <h1 class="a b" id="h1">this is amit</h1>
+    <button>change color</button>
+    </center>
+        <script>
+            function demo(){
+    var x=document.getElementById("h1") 
+         
+          if(x.getAttribute("class")=="a")
+     {
+        x.setAttribute("class","b")
+     }
+     else{
+        x.setAttribute("class","a")
+     }
+    
+            }
+            setInterval(demo,1000)
+        </script>
+    </body>
+    </html>
+
+
+ 

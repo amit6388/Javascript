@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courdmodal_by_me</title>
+    <link href="./css/all.css" rel="stylesheet"/>
+    <link href="./css/bootstrap.css" rel="stylesheet"/>
+    <script src="./js/bootstrap.bundle.js"></script>
+    <style>
+      .b{
+margin-bottom: 3%;
+
+        }
+    </style>
+</head>
+<body onload="show()">
+  <div class="container"><br><br>
+    <h1 class="text-center"><span style="color:red">Welcome To #Emer</span>ging World OF Development</h1><br><br>
+    <br>
+<div class="row">
+ 
+  <div class="col-sm-12"><div id="tbl"></div></div>
+  
+</div>
+ <div class="row">
+  <div class="col-sm-5"></div>
+  <div class="col-sm-6"></div>
+  <div class="col-sm-1" id="b">
+    <!----Start modal...-->
+
+
+
+    <input type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Add" data-bs-whatever="@mdo"/> 
+  
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title text-END"  id="exampleModalLabel"><SPan style="color: RED;">New Message</SPan></h2>
+            <button type="button" class="btn-close" style="color: RED;" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!------Start of form-->
+            <input type="text" id="name" placeholder="name" class="form-control b">
+            <input type="hidden" id="index" class="form-control b">
+            <input type="email" id="email" placeholder="email" class="form-control b">
+            <input type="text" id="mobno" placeholder="mobile" class="form-control b">
+            <input type="text" id="city" placeholder="city" class="form-control b">
+            <input type="file" id="fu" required  class="form-control b">
+<img id="im" height="30px">
+
+            <!------End of form-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="button" value="Save" onclick="add()" id="btn" class="btn btn-primary"/> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!----End modal...-->
+  </div>
+   
+ </div> 
+ <div class="input-group w-25 mx-auto">
+<input type="text" placeholder="type her.." onkeyup="dataSearch(this)" class="form-control">
+<i class="input-group-text">Search</i> </div><br><br><br>
+<div id="as"></div><br>
+  </div> 
+  <script>
+     var Name=document.querySelector("#name")
+var Mobile=document.querySelector("#mobno")
+var Email=document.querySelector("#email")
+var City=document.querySelector("#city")
+var Picture=document.querySelector("#fu")
+var btn=document.querySelector("#btn")
+var b=document.querySelector("#b")
+ 
+
+function add(){
+  if( btn.value=="Save"){ 
+
+    if(Picture.value!=""){
+      var file=Picture.value.split('\\').pop()
+var newObj={
+Name:Name.value,
+Mobile:Mobile.value,
+City:City.value,
+Email:Email.value,
+Picture:file, 
+}
+
+var data=JSON.parse(window.localStorage.getItem("st_details"))
+if(data==null)
+data=[newObj]
+else
+data.push(newObj)
+window.localStorage.setItem("st_details", JSON.stringify(data));
+location = "Courdmodal_by_me.html";
+    }
+    else{alert("pic a photo")}
+ }
+ else if(btn.value=="Update"){
+if(Picture.value!=""){
+  var data=JSON.parse(window.localStorage.getItem("st_details"))
+var index=document.querySelector("#index").value
+var file1=Picture.value.split('\\').pop()
+  data[index].Name=Name.value
+  data[index].Email=Email.value
+  data[index].Mobile=Mobile.value
+  data[index].City=City.value
+ data[index].Picture=file1
+  window.localStorage.setItem('st_details',JSON.stringify(data))
+ btn.value="Save"
+ location = "Courdmodal_by_me.html";
+}
+else{
+  alert("select a pictute")
+}
+ }
+show()
+}
+
+function show(){
+  var data=JSON.parse(window.localStorage.getItem("st_details"))
+///data=data.reverse()
+var res="<table class='table table-hover'><tr class='table table-hover table-dark'><td>Sr.No.</td><td>NAME</td><td>EMAIL</td><td>MOBILE</td><td>CITY</td><td>PIC</td><td>EDIT</td><td>DELETE</td></tr>"
+  data.forEach((data,index)=>{
+
+    var ind="Techpile-ST2200"+(index+1)
+res+=`<tr> 
+  <td>${ind}</td>
+  <td>${data.Name}</td>
+  <td>${data.Email}</td>
+  <td>${data.Mobile}</td>
+   
+
+  <td>${data.City}</td>
+  <td><img src="images/${data.Picture}" height="70px" alt="hey bhai path glt hai "/></td>
+  <td> <input type="button" onclick="edit(${index})" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Edit" data-bs-whatever="@mdo"/> 
+  <td> <input type="button" onclick="del(${index})" class="btn btn-primary"  value="Delete" /> 
+    
+   </tr>`
+
+  })
+res+="</table>"
+document.querySelector("#tbl").innerHTML=res
+}
+function del(x){
+ 
+ if(window.confirm("Are sure...?")) {
+  var data=JSON.parse(window.localStorage.getItem("st_details"))
+  data.splice(x,1)
+  window.localStorage.setItem("st_details",JSON.stringify(data))
+  show()
+ }
+}
+
+function dataSearch(x){
+  var dd=document.querySelector("#as")
+  if(x.value==""){
+  dd.style.display="none" 
+ }
+  var data1=JSON.parse(window.localStorage.getItem("st_details"))
+
+var res="<table  class='table table-hover'><tr class='table table-hover' style='background:black;color:orange;' ><td>Sr.No.</td><td>NAME</td><td>EMAIL</td><td>MOBILE</td><td>CITY</td><td>PIC</td> </tr>"
+  data1.forEach((data,index)=>{
+    if(index.toString().includes(x.value.trim())==true ){
+      dd.style.display="block"
+res+=`<tr>
+  <td>${index}</td>
+  <td>${data.Name}</td>
+  <td>${data.Email}</td>
+  <td>${data.Mobile}</td>
+
+  <td>${data.City}</td>
+  <td><img src="images/${data.Picture}" height="70px" alt="hey path error!"/></td>
+  
+  </tr>`
+  } 
+   
+  })
+res+="</table>"
+document.querySelector("#as").innerHTML=res
+
+
+}
+
+function edit(index){
+  
+  var data1=JSON.parse(window.localStorage.getItem("st_details"))
+  ind=data1[index]
+  Name.value=data1[index].Name
+ Mobile.value=data1[index].Email
+ City.value=data1[index].Mobile
+ Email.value=data1[index].City
+ document.querySelector("#im").src=`images/${data1[index].Picture}`
+btn.value="Update"
+document.querySelector("#index").value=index
+}
+
+  </script> 
+</body>
+</html>

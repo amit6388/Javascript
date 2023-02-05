@@ -1,0 +1,109 @@
+
+<html>
+    <head>
+        <style>
+      #header{
+        min-height: 200px;
+        width: 900px;
+        margin: 100px auto;
+      } 
+      .a{
+
+        height: 250px;
+        width: 250px;
+        float: left;
+        border: 20px solid aqua;
+        box-shadow: 0px 0px 25px 10px black inset;
+        border-radius: 15px;
+        margin: 25px;
+        color: aqua;
+        background: white;
+        box-sizing: border-box;
+        font-size: 150px;
+        text-align: center;
+        line-height: 250px;
+        font-family: digital-7;
+      } 
+      body{
+        background: black;
+      }    
+        </style>
+        
+    </head>
+    <body>
+    <div id="header">
+    <div class="a" id="h">hh</div>
+    <div class="a" id="m">mm</div>
+    <div class="a" id="s">ss</div>
+</div> <br><br><br>
+<center>
+  <h1>
+  <input type="button" onclick="demo(this)" value="START" />
+  <input type="button"  onclick="demo(this)" value="RESET" />
+  </h1>
+  </center>
+  
+   <script> 
+
+  var h=0
+  var m=0
+  var s=0
+function stopWatch(){
+        var hh = document.querySelector("#h")
+        var mm = document.querySelector("#m")
+        var ss = document.querySelector("#s") 
+  s++
+  if(s==60){
+    s=0
+    m++
+ 
+  m++
+  if(m==60){
+    m=0
+    h++
+  }
+}
+if(h<10)
+        hh.innerText = "0"+h
+        else
+        hh.innerText = h
+        if(m<10)
+        mm.innerText = "0"+m
+        else
+        mm.innerText = m
+        if(ms<10)
+        ss.innerText = "0"+s
+        else
+        ss.innerText = s
+        
+
+}
+
+function demo(x){
+        if(x.value=="START"){
+          x.value = "STOP"
+          x.style.background = "red"
+          x.style.color = "white"
+          y=setInterval(stopWatch,1000)
+        }
+        else if(x.value=="RESET"){
+           
+           clearInterval(y)
+           document.querySelector("#m").innerText = "00"
+           document.querySelector("#s").innerHTML = "00"
+           document.querySelector("#ms").innerHTML = "00"
+           x.style.color = "white"
+        }  
+        
+        else{
+          x.value="START"
+          x.style.background = "green"
+          x.style.color = "white"
+          clearInterval(y)
+        }
+        
+      }
+
+   </script>
+    </body>
+    </html>

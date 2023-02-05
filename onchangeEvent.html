@@ -1,0 +1,49 @@
+
+<html>
+<head>
+<script>
+function demo()
+{
+var d=document.getElementById("ddl");
+var t=document.getElementById("txt");
+if(d.value=="SUMMER TRAINING")
+t.value="1000";
+if(d.value=="WINTER TRAINING")
+t.value="1500";
+if(d.value=="INDUSTRIAL TRAINING")
+t.value="6000";
+if(d.value=="APPRENTICESSHIP")
+t.value="18000";
+} 
+<!---another way-->
+
+function demo(d)
+{
+ 
+var t=document.getElementById("txt");
+if(d.value=="SUMMER TRAINING")
+t.value="1000";
+if(d.value=="WINTER TRAINING")
+t.value="1500";
+if(d.value=="INDUSTRIAL TRAINING")
+t.value="6000";
+if(d.value=="APPRENTICESSHIP")
+t.value="18000";
+}
+
+</script>
+</head>
+<body>
+SELECT COURSE<br/>
+<select id="ddl" onchange="demo(this)">
+<option>---SELECT---</option>
+<option>SUMMER TRAINING</option>
+<option>WINTER TRAINING</option>
+<option>INDUSTRIAL TRAINING</option>
+<option>APPRENTICESSHIP</option>
+</select>
+<br/>
+AMOUNT TO PAY<br/>
+<input id="txt" type="text" readonly />
+</head>
+</html>

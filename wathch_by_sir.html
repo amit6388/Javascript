@@ -1,0 +1,37 @@
+
+<html>
+    <head>
+        <style>
+            div{
+                min-height: 150px;
+                width: 1000px;
+                border: 20px sold red;
+                border-radius: 10px;
+                box-shadow: 0px 0px 15px 4px black inset;
+                padding: 50px;
+                font-size: 200px; 
+                text-align: center;
+                color: red;
+                margin: 100px auto;
+                background: white;
+            font-family: digital-7;
+            }
+            body{
+                background: black;
+            }
+        </style>
+        
+    </head>
+    <body>
+    <div>TIME </div>
+    <script>
+        setInterval(()=>{
+
+            
+var d=new Date() 
+var x=d.toLocaleTimeString()
+document.querySelector("div").innerText=x
+})
+    </script>
+    </body>
+    </html>

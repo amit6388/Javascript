@@ -1,0 +1,92 @@
+
+ <html>
+<head>
+<style>
+body
+{
+background:black;
+font-family:Digital-7;
+color:white;
+font-weight:bold;
+text-align:center;
+font-size:150px;
+}
+#outer
+{
+height:300px;
+width:1200px;
+background:white;
+margin:50px auto;
+border-radius:50px;
+}
+.col
+{
+height:250px;
+width:250px;
+float:left;
+background:white;
+margin:25px;
+border-radius:50px;
+line-height:250px;
+color:red;
+font-size:160px;
+box-shadow:0px 0px 20px 10px black inset;
+}
+</style>
+
+</head>
+ 
+<body ><b STYLE="font-family:arial;font-size:13px;transform:translateY(230px);">
+CHAUHAN JI...</b>
+<div id="outer" >
+<div class="col" id="h">00</div>
+<div class="col" id="m">00</div>
+<div class="col" id="s">00</div>
+<div class="col" id="a">00</div>
+</div>
+<div onload="demo2(this)">Time....today</div>
+<script> 
+function demo(){
+var a =new Date() 
+var hh=a.getHours() 
+ var mm=a.getMinutes() 
+var ss=a.getSeconds()
+ var h=document.getElementById("h")
+ var m=document.getElementById("m")
+ var s=document.getElementById("s")
+ var a=document.getElementById("a")
+if(hh>12){
+    a.innerHTML="PM"
+}else{
+    a.innerHTML="AM"
+}
+if(hh>12){
+  var a= hh-12
+    if(a<=9){
+ h.innerHTML=`0${a}`
+}else{
+    h.innerHTML=a
+}
+}
+else if(hh<=9){
+ h.innerHTML=`0${hh}`
+}else{
+    h.innerHTML=hh
+}
+
+
+if(mm<=9){
+ m.innerHTML=`0${mm}`
+}else{
+    m.innerHTML=mm
+}
+if(ss<=9){
+ s.innerHTML=`0${ss}`
+}else{
+    s.innerHTML=ss
+}
+ }
+ setInterval(demo,1000)
+</script>
+</body>
+</html>

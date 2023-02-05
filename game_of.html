@@ -1,0 +1,105 @@
+
+<html>
+    <head>
+<style>
+    #body{
+        background:url('images/c.jpg');
+        background-size: 100% 100%;
+       
+    }
+    #outer{
+height: 250px;
+width:200px;
+margin: 100px auto;
+border-radius: 0px 0px 9px 9px;
+background: rgba(255,255,255,.4);
+ border: 2px solid black;
+}
+
+#display{
+height: 50px;
+width:200px;
+ background:white ; 
+ border: 1px solid beige;
+box-sizing: border-box;
+font-size: 28px;
+transform: translateY(-20px);
+text-align: center;
+line-height: 40px;
+box-shadow: 0px 0px 5px 2px black inset;
+ 
+}
+.b {
+height: 50px;
+width:200px;
+transform: translateY(-20px);
+ 
+}
+p{
+height: 45px;
+width:200px;
+transform: translateY(-20px);
+border: 1px solid beige;
+box-sizing: border-box;
+font-size: 28px;
+text-align: center;
+color: aliceblue;
+line-height: 50px;
+box-shadow: 0px 0px 5px 2px black inset;
+}
+
+
+
+.a{
+height: 40px;
+width:60px;
+margin:5px 20px;
+border: 1px solid beige;
+box-sizing: border-box;
+font-size: 28px;
+text-align: center;
+line-height: 40px;
+box-shadow: 0px 0px 5px 2px black inset;
+border-radius: 9px;
+ float: left; 
+}
+</style>
+    </head>
+<body id="body">
+     <div id="outer">
+<center><p> Score:1/2</p></center> <div id="display"></div>
+<div class="b">
+<div onclick="demo(this)" class="a"  >1</div>
+<div class="a" onclick="demo(this)">2</div></div><br> 
+<div class="b">
+        <div class="a"  onclick="demo(this)" >3</div>
+        <div class="a"  onclick="demo(this)" >4</div></div> 
+     </div>
+     <script>
+        var score=0
+        var t=0
+ function demo(x){
+    var dis=document.getElementById("display")
+    var p=document.querySelector("p")
+var rnd=Math.floor(Math.random()*4)
+var r=rnd+1
+t++
+ if(r==x.innerText){
+  dis.innerText="Congrarts"
+  dis.style.color="green"
+  score++
+ }
+else{
+  dis.innerText="Sorry you losse"  
+  dis.style.color="red"
+ }
+
+p.innerText=`Score:${score}/${t}`
+p.current
+ 
+
+ }
+
+     </script>
+</body>
+</html>

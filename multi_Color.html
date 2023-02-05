@@ -1,0 +1,57 @@
+<html>
+    <head>
+<style>
+    div{
+height: 45px;
+width: 150px;
+ float: left; 
+ text-align: center;
+ line-height: 45px;
+ font-size: 27px; 
+ margin: 1px;
+ color: white; 
+box-sizing: border-box;
+}
+</style>
+    </head>
+<body onload="demo()">
+    <input type="text" value="fh" id="txt">&nbsp;&nbsp;&nbsp;   <button onclick="demo1()"> click here</button>
+    <p></p>
+    <script>
+    function demo(){
+
+           var dv=""
+        for(var a=1;a<=160;a++){
+
+       var str="0123456789abcdef"
+       color="#"
+       color1="#"
+       for( var i=0;i<=5;i++){
+
+        var ind=Math.floor(Math.random()*16)
+        var ind1=Math.floor(Math.random()*16)
+        var chr=str[ind]
+        var chr1=str[ind1]
+        color+=chr 
+        color1+=chr1
+       }
+        dv=dv+"<div onclick='demo1(this)' style='background:"+color+";border:2px groove"+color1+";'>"+color+"</div>"
+       
+    }
+    document.querySelector("p").innerHTML=dv
+
+    }
+
+    function demo1(x){
+
+        var txt=document.querySelector("#txt")
+        var btn=document.querySelector("button")
+              txt.value=x.innerText
+ 
+
+
+    }
+
+    </script>
+</body>
+</html>

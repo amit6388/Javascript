@@ -1,0 +1,105 @@
+
+<html>
+    <head>
+<style>     
+  #a{
+
+height:300px;
+width: 300px;
+background: white;
+margin: 100px auto;
+
+border: 4px solid navy;
+
+        }
+		a{
+		
+		text-align:center;
+		font-size:25px;
+		color:red;
+		text-decoration:none;
+		}
+		
+		
+		
+        #b{ 
+height:30px;
+width: 200px;  
+transform: translateY(-24);
+background:url('images/cbg.jpg');
+line-height: 30px;
+float: left;
+margin-left: 30px;
+margin-right: 10px;
+font-size: 29px;
+font-weight: bold;
+text-align: center;
+color: black;
+border: 1px solid black;
+
+        }
+        input{
+            padding-left: 90px;
+        }
+        #an:hover{
+transition: 2s;
+          transform: rotate(20deg);
+        }
+    </style> 
+    </head>
+    <body id="body" onload="demo()" > 
+    
+    <center>
+	<a href="https://www.youtube.com/watch?v=dFsPO4iYLSg"> click to registration</a>
+	<br><br>
+    <div id="a"><br> <br>
+      <br><br><br> 
+        <div id="b">Refresh...</div> &nbsp; &nbsp; <div  id="an" onclick="demo()" style="float: left; transition: 2s;"><img src="images/captcha.png" height="30" width="30px" alt=""></div><br>
+        
+<br><br>
+<input type="text" placeholder="Write captch here..." id="txt1">
+<br><br><br>
+<button onclick="loginW()">  login</button>
+<br></br>
+
+
+    </div></center>
+ 
+        <script>
+        function demo(){
+            str="ZA1B2CD3EF4GHI5JKL6MNO7PQY0R8STUV9WX"
+            var  c=""
+                  for(i=0;i<5;i++){
+                  var a=Math.floor(Math.random()*str.length-1) 
+                  var b=str[a]
+                    c=c+b+" "
+                  }
+                  var x=document.getElementById("b")
+                x.innerText=c
+              
+}
+
+function loginW(){
+var b=document.getElementById("b")
+var txt1=document.getElementById("txt1")
+if(b.innerText.trim()==txt1.value.trim()){
+ window.location="Backround_random_color.html"
+ b.style.border="2px solid green"
+ txt1.style.border="2px solid green"
+ alert("OK")
+}
+else{
+ 
+  b.style.border="2px solid red"
+  txt1.style.border="2px solid red"
+  alert( "WORNG.....")
+}
+}
+ 
+ 
+        </script>
+    </body>
+    </html>
+
+
+ 

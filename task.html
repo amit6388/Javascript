@@ -1,0 +1,32 @@
+
+<html>
+<head>
+	
+</head>
+<body >
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+
+
+
+<script>
+var arr=["AMIT","KUMAR","SINGH","SURYA","CHAUHAN","RAJ"];
+var res="<select onchange='demo1(this)'>";
+arr.forEach(function(x){
+	res=res+"<option>"+x+"</option>"
+
+})
+res=res+"</select>" 
+ 
+ document.querySelector("#p1").innerHTML=res
+ 
+            function demo1(x)
+		{
+			 
+			var a=document.getElementById("p2");
+	        a.innerText=x.value
+			}
+	</script>
+</body>
+</html>

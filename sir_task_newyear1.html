@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.bundle.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            #dilip
+            {
+                width: 500px;
+            }
+            input
+            {
+                width: 400px;
+                border-radius: 30px; 
+                margin-left: 45px;
+                border: 1px solid black;
+
+            }
+    </style>
+</head>
+<body onload="show()">
+   </head>
+   <br>
+     <div class="row">
+        <center><h3>Online <u class="text-warning">Training</u></h3>
+            <span style="font-size: 15px;">Free Registion 
+                 join the Techpile. I promise you to give my best if you</br> will ll be a part of Techpile.
+            </span>
+        </br>
+            </center>
+        </br>
+    </br>
+            <div class="col-sm-4 login bg-light i  mx-auto  " id="dilip">
+            </br>
+<div class="input-group ">
+    <span class="input-group-text">
+        <i class="fa-solid fa-user-large"></i>
+    </span>
+    <input type="text" class="form-control" placeholder=" Username" id="Name" />
+    </div></br>
+    <div class="input-group ">
+        <span class="input-group-text">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+        <input type="Number" class="form-control" placeholder="Mobile No Number" id="Mobile" />
+        </div></br>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="fa-regular fa-envelope"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="Email Id" id="Email" />
+            </div></br>
+        
+       <div class="input-group"> 
+<span class="input-group-text ">
+   <i class="fa-solid fa-pencil"></i>
+</span>
+<input type="te" list="c"   class="form-control" placeholder="Summer Training" id="Summer"/>
+<datalist id="c">
+<option>Summer Training</option>
+</datalist>
+</div>
+</br>
+
+
+<div class="input-group ">
+<span class="input-group-text">
+   <i class="fa-solid fa-calendar-days"></i>
+</span>
+<input type="date" class="form-control" placeholder="16-11-2022"  id="Date"/>
+</div>
+</br>
+   <div class="input-group">
+       <span class="input-group-text">
+           <i class="fa-solid fa-pencil"></i>
+       </span>
+       <input type="text" list="a"class="form-control"placeholder="Select Training Name"  id="Select"/>
+       <datalist id="a">
+       <option>C programming</option>
+       <option>C++ programming</option>
+       <option> JAVA programming</option>
+       </datalist>
+        </div></br>
+           <div class="input-group ">
+               <span class="input-group-text">
+                 <i class="fa-solid fa-desktop"></i>
+               </span>
+               <input type="text" list="b" class="form-control" placeholder=" Select Your Course"  id="Course"/>
+               <datalist id="b">
+                <option>B.Tech(C.S)</option>
+                <option>B.Tech(I>T)</option>
+                <option>DIPLOMA CS</option>
+                <option>BCA</option>
+                <option>MCA</option>
+               </datalist>
+
+               </div></br>
+               <div class="input-group">
+                   <span class="input-group-text">
+                       <i class="fa-regular fa-clock"></i>
+                   </span>
+                   <input type="text" list="r" class="form-control" placeholder="Your Pursuing Year" id="Year"/>
+                   <datalist id="r">
+                    <option>First</option>
+                    <option>Second</option>
+                    <option>Third</option>
+                    <option>Fourth</option>
+        
+                   </datalist>
+                   </div></br>
+        
+                           <div class="input-group ">
+                               <span class="input-group-text">
+                                   <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                               </span>
+                               <input type="text"  list="p" class="form-control" placeholder="Training Session"  id="Manish" />
+                               <datalist id="p">
+                                <option>2022</option>
+                                <option>2019</option>
+                                <option>2018</option>
+                                <option>2017</option>
+                                <option>2016</option>
+                               </datalist>
+                               </div>
+
+         <input type="submit" value="Register" id="btn" class="btn btn-warning mt-4" onclick="demo(),show()"/>
+         <input type="hidden" id="dilip">
+   </div>
+   </div>
+</br>
+   <div id="d"></div>
+
+   
+
+    <script>
+      var student=[];  
+ function demo(){
+    var Name=document.querySelector("#Name")
+    var Mobile= document.querySelector("#Mobile")
+    var Email= document.querySelector("#Email")
+    var Summer= document.querySelector("#Summer")
+    var Date= document.querySelector("#Date")
+    var Select=document.querySelector("#Select")
+    var Course= document.querySelector("#Course")
+    var Year= document.querySelector("#Year")
+    
+    
+if(btn.value=="Register"){
+    student.push({
+    Name:Name.value,
+    Mobile:Mobile.value,
+    Email:Email.value,
+    Summer:Summer.value,
+    Date:Date.value,
+    Select:Select.value,
+    Course:Course.value,
+    Year:Year.value,
+
+    
+    });
+
+ }
+ else if(btn.value=="Update"){
+
+var i=dilip.value
+student[i].Name=Name.value
+
+ }
+}
+
+  
+
+ function show()
+ {
+ var res="<table class ='table table-hover'><tr class='text-bg-dark'><th>SrNO</th><th>Name</th><th>Mobile</th><th>Email</th><th>Summer</th><th>Data</th><th>Select</th><th>Course</th><th>Year</th><td>Edit</td><td>Delete</td></tr>"
+    var srno=0
+    student.forEach((data,index)=>{
+        srno++;
+            res+=`
+        
+            <tr>
+                <th>${srno}</th>
+            <th>${data.Name}</th>
+            <th>${data.Mobile}</th>
+            <th>${data.Email}</th>
+            <th>${data.Summer}</th>
+            <th>${data.Date}</th>
+            <th>${data.Select}</th>
+            <th>${data.Course}</th>
+            <th>${data.Year}</th>
+
+            
+            <td><button class='btn btn-danger' onclick='edit(${index})'>Edit</button></td>
+            <td><button class='btn btn-danger' onclick='del(${index})'>Delete</button></td>
+            </tr>
+            `
+
+
+    });
+    res+="</table>"
+    document.querySelector("#d").innerHTML=res
+ }
+ function del(x)
+ {
+
+    var remove=x
+    var result=confirm("Kay App item to Delete karna chahte ho ")
+
+    if(result==true)
+ {
+    student.splice(remove,1)
+ }
+ show()
+ }
+ function edit(x)
+ {
+Name.value=student[x].Name
+Mobile.value=student[x].Mobile
+Email.value=student[x].Email
+Summer.value=student[x].Summer
+Date.value=student[x].Date
+Select.value=student[x].Select
+Course.value=student[x].Course
+Year.value=student[x].Year
+dilip.value=student[x].dilip
+btn.value="Update"
+dilip.value=x
+ }
+
+    </script>
+</body>
+</html>

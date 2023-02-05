@@ -1,0 +1,37 @@
+<html><head></head>
+<body>
+    <input type="file" onchange="demo(this)" id="fu"/> 
+    <b>msg</b><br>
+    <button disabled>Save</button>
+    <script>
+ 
+
+ 
+ function demo(x){
+    var str=x.value
+    var b=document.querySelector("b")
+    var btn=document.querySelector("button")
+    var bp= str.slice(str.lastIndexOf(".")+1).toUpperCase()
+if(bp=="JPG" || bp=="PNG" bp=="JPEG"){
+b.innerText="Valid Imag"
+b.style.color="green"
+x.style.color="green"
+btn.removeAttribute("disabled")
+
+}
+else    {
+    b.innerText="Invalid Imag"
+b.style.color="red"
+x.style.color="red"
+btn.setAttribute("disabled","disabled")
+
+}
+
+ 
+ }
+ 
+ 
+
+    </script>
+</body>
+</html>

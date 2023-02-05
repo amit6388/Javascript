@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <link href="css/bootstrap.css" rel="stylesheet"/>
+
+        <link href="css/all.css" rel="stylesheet"/>
+        <style>
+         .login
+         {
+            min-height: 200px;
+         }
+        </style>
+    </head>
+    <body onload="show()">
+        <center><h3>Register <u class="text-warning">With Us</u></h3>
+            <span style="font-size: 20px;">You are just one step behind to join the Techpile. I promise you </br>to give my best if you will ll be a part of Techpile.
+            </span>
+        </center>
+      <div class="row">
+      <div class="col-sm-6 login bg-light   mx-auto  py-4 px-5">
+            Enroll No:
+        <div class="input-group"> 
+<span class="input-group-text ">
+    <i class="fa-solid fa-pencil"></i>
+</span>
+<input type="text" class="form-control" placeholder="TPT-ST22" id="enroll"/>
+</div>
+</br>
+Today Is:
+<div class="input-group ">
+<span class="input-group-text">
+    <i class="fa-solid fa-calendar-days"></i>
+</span>
+<input type="date" class="form-control" placeholder="16-11-2022" id="today" />
+</div>
+</br>
+Name:
+<div class="input-group ">
+    <span class="input-group-text">
+        <i class="fa-solid fa-user-large"></i>
+    </span>
+    <input type="text" class="form-control" placeholder=" Username" id="name" />
+    </div></br>
+    Apply For:
+    <div class="input-group">
+        <span class="input-group-text">
+            <i class="fa-solid fa-pencil"></i>
+        </span>
+        <input type="text" list="a"class="form-control"placeholder="Select Training Name" id="apply" />
+        <datalist id="a">
+        <option>C programming</option>
+        <option>C++ programming</option>
+        <option> JAVA programming</option>
+        </datalist>
+         </div></br>
+        Collage Name:
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="fa-regular fa-building-columns"></i>
+            </span>
+            <input type="text" class="form-control" placeholder=" " id="collage"/>
+            </div></br>
+            <input type="submit" value="Register Now" id="btn" class="btn btn-danger mt-4" onclick="demo(),show()"/>
+            </div>
+            <div class="col-sm-6 login bg-light   mx-auto  py-4 px-5">
+            Course:
+            <div class="input-group ">
+                <span class="input-group-text">
+                  <i class="fa-solid fa-desktop"></i>
+                </span>
+                <input type="text" class="form-control" placeholder=" Select Your Course" id="course" />
+                </div></br>
+
+               Year:
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fa-regular fa-clock"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Your Pursuing Year" id="year" />
+                    </div></br>
+                    Contact No:
+                    <div class="input-group ">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <input type="number" class="form-control" placeholder="Mobile No" id="contact" />
+                        </div></br>
+                        Email Id:
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fa-regular fa-envelope"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Email Id" id="email"  />
+                            </div></br>
+                            Amount To Pay:
+                            <div class="input-group ">
+                                <span class="input-group-text">
+                                    <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                                </span>
+                                <input type="number" class="form-control" placeholder="" id="amount" />
+                                </div>
+                                <input type="hidden" id="index">
+    </div>
+    </div>
+    <p></p>
+     <script>
+        var student=[]
+        var Enroll=document.querySelector("#enroll")    
+        var Today=document.querySelector("#today")  
+        var Name=document.querySelector("#name")  
+        var Apply =document.querySelector("#apply") 
+        var Collage=document.querySelector("#collage") 
+        var Course=document.querySelector("#course")
+        var Year=document.querySelector("#year")  
+        var Contact=document.querySelector("#contact")  
+        var Email=document.querySelector("#email")
+        var Amount=document.querySelector("#amount") 
+        var btn=document.querySelector("#btn") 
+        var index=document.querySelector("#index") 
+
+        function demo(){
+       if(btn.value=="Register Now"){
+    
+       student.push({
+            Enroll:Enroll.value,
+            Today:Today.value,
+            Name:Name.value,
+            Apply:Apply.value,
+            Collage:Collage.value,
+            Course:Course.value,
+            Year:Year.value,
+            Contact:Contact.value,
+            Email:Email.value,
+            Amount:Amount.value,    
+        });
+}
+
+else if(btn.value=="Update"){
+    var i=index.value
+    student[i].Name=Name.value
+    student[i].Enroll=Enroll.value
+    student[i].Apply=Apply.value
+    student[i].Collage=Collage.value
+    student[i].Course=Course.value
+    student[i].Year=Year.value
+    student[i].Amount=Amount.value
+    student[i].Email=Email.value
+    student[i].Contact=Contact.value
+    student[i].Today=Today.value
+btn.value="Register Now"
+
+}
+        }
+        function show(){
+         var res="<table class ='table table-hover'><tr class='text-bg-dark'><td>Enroll</td><td>Todays Is</td><td>Name</td><td>Apply For</td><td>Collage Name</td><td>Course</td><td>Year</td><td>Contact No</td><td>Email Id</td><td>Amount TO Pay</td><td class='btn btn-danger'>Edit</td><td>Delete</td></tr>"
+            student.forEach((data,index)=>{
+             res+=`
+                 <tr>
+                 <td>${data.Enroll}</td>
+                 <td>${data.Today}</td>
+                 <td>${data.Name}</td>
+                 <td>${data.Apply}</td>
+                 <td>${data.Collage}</td>
+                 <td>${data.Course}</td>
+                 <td>${data.Year}</td>
+                 <td>${data.Contact}</td>
+                 <td>${data.Email}</td>
+                 <td>${data.Amount}</td>
+                 <td><button class='btn btn-danger' onclick='edit(${index})'>Edit</button></td>
+                 <td><button class='btn btn-warning'onclick='del(${index})'>Delete</button></td>
+                </tr>
+             `
+            })
+            res+="<table/>"
+            document.querySelector("p").innerHTML=res
+         }
+
+         function del(x)
+         {
+            var remove=x
+            var status=confirm("Are you sure want to delete record ")
+          
+        if(status==true)
+        {
+            student.splice(remove,1)   
+        }
+        show();
+         }
+
+         function edit(x)
+         {
+          
+            Enroll.value=student[x].Enroll
+            Today.value=student[x].Today
+            Name.value=student[x].Name
+            Apply.value=student[x].Apply
+            Contact.value=student[x].Contact
+            Collage.value=student[x].Collage
+            Course.value=student[x].Course
+            Year.value=student[x].Year
+            Amount.value=student[x].Amount
+            Email.value=student[x].Email
+         btn.value="Update"
+         index.value=x
+         }
+     </script>
+    </body>
+</html>

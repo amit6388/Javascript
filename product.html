@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #outer{
+            height: 190px;
+            width:440px;
+            background-color: antiquewhite;
+            border: 1px solid black;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0px 0px 5px 5px  rgb(216, 134, 134);
+            margin-left: 15px;
+            margin-bottom: 20px;
+            float: left;
+        }
+        /* #header{
+            height: 40px;
+            width: 500px;
+            background-color: aqua;
+        } */
+        #mid{
+            height: 180px;
+            width:500px;
+            
+
+        }
+        #left{
+            height:180px;
+            width: 280px;
+            font-size: 22px;
+            float:left;
+            margin-top: 20px;
+        }
+        #right{
+            height:150px;
+            width: 150px;
+            border: 1px solid black;
+            box-shadow: 0px 0px 8px 3px black;
+            float:left;
+            background-color: red;
+            margin-top: 20px;
+        }
+        .btn1{
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    color:white;
+    background-color: rgb(216, 134, 134);
+    border:none;
+    border-radius: 8px;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+i{
+    color: red;
+    font-size: 26px;
+}
+       
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="show()">
+  
+        <span>Product Name <br><input required id="pname" type="text"></span><br>
+        <span>Price <br><input required id="price" type="number"></span><br>
+        <span>Quantity <br><input required id="qty" type="number"></span><br>
+        <span >Product Image <br><input required id="file" type="file"></span><br><br>
+        <input type="button" value="Submit" onclick="demo(),show()">
+        <p></p>
+    
+    <script>
+     function demo(){
+        var pname=document.querySelector("#pname").value;
+        var price=document.querySelector("#price").value;
+        var qty=document.querySelector("#qty").value;
+        var file=document.querySelector("#file").value;
+
+        var obj={
+             "pname":pname,  
+              "price":price,
+            "qty":qty,
+            "file":file,
+            
+        }
+        var data=JSON.parse(window.localStorage.getItem("Card_Data"))
+        if(data==null)
+        data=[obj]
+        else
+        data.push(obj)
+        window.localStorage.setItem("Card_Data",JSON.stringify(data))
+    }
+
+        function show(){
+            var x=JSON.parse(window.localStorage.getItem("Card_Data"))
+            card=" <h1 style='text-align:center;color:red;'>SHOPPING CART &phone; </h1><hr/>"
+            x.forEach((data,index) => {
+                
+            
+            card+=`
+           
+            <div id="outer">
+                
+                <div id="mid">
+                    <div id="left">
+                        <b>Product Name :</b> <i class="txt">${data.pname}</i> <br/>
+                <b>Price : </b> <i>${data.price}</i><br/>
+                <b>Quantity : </b><i>${data.qty}  </i>
+               
+                <br/><br>
+                <button class="btn1"><a  href="javascript:handleDelete('+index+')">Delete</a></button>
+                        </div>
+                    <div id="right"><img src="${data.file}" alt="ss"/></div>
+                    </div>
+               
+                </div>
+            
+            `
+         
+        });
+        document.querySelector("p").innerHTML=card
+        }
+
+        function handleDelete(index){
+            console.log(index)
+        if(window.confirm('Do you want to delete')){
+            var obj=JSON.parse(window.localStorage.getItem("Card_Data"))
+            obj.splice(index,1);
+            window.localStorage.setItem('Card_Data',JSON.stringify(obj))
+            show();
+        }
+     }
+   
+    </script>
+</body>
+</html>

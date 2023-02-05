@@ -1,0 +1,31 @@
+<html><head></head>
+<body >
+    <p class="abc">mita1</p>
+    <p class="abc">g2</p>
+    <p class="abc">bf3</p>
+    <p class="abc">gng4</p>
+
+
+    <hr>
+<h1 id="p"></h1>
+
+<script>
+ 
+var x=document.getElementsByClassName("abc")
+var p=document.getElementById("p")
+var res="<ul onload='demo()'>"
+    for(var i=0;i<=3;i++){
+res=res+"<li>"+x[i].innerText+"</li>" 
+    }
+    res=res+"</ul>"
+    p.innerHTML=res
+ 
+ 
+
+</script>
+   
+
+ 
+</body>
+
+</html>

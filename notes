@@ -1,0 +1,14 @@
+type casting
+******************
+getElementById()
+getElementsByIdTagName()
+getElementsByIdClassName()
+querySelector()
+querySelectorAll()
+=========
+value->set/get(return type is string)
+form control
+(textaraa,button,select,datalist...etc)
+
+
+

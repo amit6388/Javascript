@@ -1,0 +1,30 @@
+
+<html>
+    <head>
+        <style>
+ 
+        </style>
+    </head>
+    <body>  
+        <p name="a"  >html</p>
+        <p name="b">css</p>
+        <p name="a">js</p>
+        <p name="a">jQery</p>
+    
+        <button onclick="demo()">click me</button>    <br><br><br>
+        <div id="pp"></div>
+    <script>  function demo(){
+        
+        var x=document.getElementsByName("a")
+        res="<select>"
+            x.forEach((c)=>{
+            res=res+"<option>"+c.innerText+"</option>"
+
+            })
+            res=res+"</select>"
+document.getElementById("pp").innerHTML=res;
+
+    }
+        </script>   
+    </body>
+    </html>

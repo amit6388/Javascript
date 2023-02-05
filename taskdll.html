@@ -1,0 +1,26 @@
+
+<html>
+<head>
+<script>
+function demo()
+{
+var arr=["HTML","CSS","JS","JQUARY","BOOTSTRAP","DATABASE","C"];
+var c=["red","green","yellow","pink","maroon","orange","navy"];
+var l=document.getElementById("list");
+var res="<select>";
+ 
+for(var i of arr)
+{
+res=res+"<option style='background:"+c[a]+"'>"+i+"</option>";
+a++
+}
+l.innerHTML=res;
+"</select>"
+}
+</script>
+</head>
+<body>
+<ul id="list"></ul>
+<button ondblclick="demo()">CLICK ME</button>
+</body>
+</html>

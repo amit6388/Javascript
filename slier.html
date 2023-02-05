@@ -1,0 +1,52 @@
+
+<html>
+    <head>
+        <style>
+
+#box
+{
+height: 500px;
+width: 1000px;
+border: 20px groove aqua;
+border-radius: 10px;
+text-align: center;
+color: white;
+line-height: 500px;
+margin:100px auto;
+font-size: 60px;
+background: url("images/asd.jpg");
+background-size: 100% 100%;
+}
+        </style>
+    </head>
+    <body>  <center>
+    <h1>slider</h1><hr>
+  
+<div id="box">
+message
+
+
+</div>
+
+
+    </center>
+    
+    <script>
+
+        var arr=["a.jpg","b.jpg","c.jpg","d.jpg","e.jpg"]
+        var txt=["txt1","txt2","txt3","txt4","txt5"]
+        var i=0
+        function slider()
+        {
+        var dv =document.querySelector("#box");
+        dv.style.background="url('images/"+arr[i]+"')"
+        dv.style.backgroundSize="cover"
+        dv.innerText=txt[i]
+        i++
+        if(i==arr.length)
+        i=0 
+    }
+    window.setInterval(slider,100)
+        </script>   
+    </body>
+    </html>

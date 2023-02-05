@@ -1,0 +1,55 @@
+
+<html>
+    <head>
+        <script>
+            function demo()
+            {
+            var arr=["AMIT","KUMAR","SINGH","SURYA","CHAUHAN","RAJ"];
+            var color=["red","green","yellow","pink","maroon","orange","navy"];
+            var l=document.getElementById("list");
+            var res="<select id='ddl' onchange='demo1()'>";
+            for(i=0;i<6;i++)
+            {
+                res=res+"<option style='background:"+color[i]+";color:"+color[i+1]+";'>"+arr[i]+"</option>";
+                
+            }
+            res=res+"</select>";
+            document.write(res)
+             }
+            
+            
+            function demo1()
+<html>
+<head>
+<script>
+function demo()
+{
+var arr=["HTML","CSS","JS","JQUARY","BOOTSTRAP","DATABASE"];
+var color=["red","green","yellow","pink","maroon","orange","navy"];
+var l=document.getElementById("list");
+var res="";
+for(i=0;i<6;i++)
+{
+res=res+"<li style='background:"+color[i]+";color:"+color[i+1]+";'>"+arr[i]+"</li>";
+}
+l.innerHTML=res;
+}
+</script>
+</head>
+<body>
+<ul id="list"></ul>
+<button onclick="demo()">CLICK ME</button>
+</body>
+</html>
+            {
+                var y=document.getElementById("ddl").value;
+                var a=document.getElementById("h");
+                document.write(y);
+                }
+        </script>
+    </head>
+    <body onload="demo()">
+        <h1 id="h"></h1>
+    
+    </body>
+    </html>

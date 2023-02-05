@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css" media="all">
+      #header{
+        min-height: 200px;
+        width: 1000px;
+        margin: 100px auto;
+      }
+      .a{
+        height: 280px;
+        width: 280px;
+        float: left;
+        border: 20px solid aqua;
+        border-radius: 15px;
+        box-shadow: 0px 0px 25px 10px black inset;
+        margin: 25px;
+        color: aqua;
+        font-size: 120px;
+        font-family: ;
+        text-align: center;
+        line-height: 230px;
+        box-sizing: border-box;
+        background: white;
+      }
+      body{
+        background: black;
+      }
+      input{
+        height: 50px;
+        width: 150px;
+        border-radius: 5px;
+        font-size: 25px;
+        background: green;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="a" id="m">MM</div>
+      <div class="a" id="s">SS</div>
+      <div class="a" id="ms">MS</div>
+    </div>
+    <br/>
+    <center>
+    <h1>
+    <input type="button" onclick="demo(this)"value="START" />
+    <input type="button" onclick="demo(this)"value="RESET" />
+    </h1>
+    </center>
+    
+    <script type="text/javascript" charset="utf-8">
+      var h = 0
+      var m = 0 
+      var ms = 0
+      function stopWatch(){
+        var hh = document.querySelector("#m")
+        var mm = document.querySelector("#s")
+        var ss = document.querySelector("#ms")
+        ms++
+        if(ms==100){
+          ms=0
+          m++
+        
+        if(m==60){
+          m=0
+          h++
+        }
+        }
+        if(h<10)
+        hh.innerText = "0"+h
+        else
+        hh.innerText = h
+        if(m<10)
+        mm.innerText = "0"+m
+        else
+        mm.innerText = m
+        if(ms<10)
+        ss.innerText = "0"+ms
+        else
+        ss.innerText = ms
+        
+      }
+      
+      function demo(x){
+        if(x.value=="START"){
+          x.value = "STOP"
+          x.style.background = "red"
+          x.style.color = "white"
+          y=setInterval(stopWatch,10)
+        }
+        else if(x.value=="RESET"){
+           clearInterval(y)
+           
+           document.querySelector("#m").innerText = "00"
+           document.querySelector("#s").innerHTML = "00"
+           document.querySelector("#ms").innerHTML = "00"
+           x.style.color = "white"
+        }  
+        
+        else{
+          x.value="START"
+          x.style.background = "green"
+          x.style.color = "white"
+          clearInterval(y)
+        }
+        
+      }
+      
+      
+    </script>
+  </body>
+</html>

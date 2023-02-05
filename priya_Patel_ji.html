@@ -1,0 +1,49 @@
+<html>
+    <head>
+<style>
+    div{
+height: 45px;
+width: 150px;
+ float: left; 
+ text-align: center;
+ line-height: 45px;
+ font-size: 27px; 
+ margin: 1px;
+ color: white; 
+box-sizing: border-box;
+}
+</style>
+    </head>
+<body  >
+    <p></p>
+    <script>
+    function demo(){
+
+           var dv="<table border='1'>"
+        for(var a=1;a<=10;a++){
+
+       var str="0123456789abcdef"
+       color="#"
+       color1="#"
+       for( var i=0;i<=5;i++){
+
+        var ind=Math.floor(Math.random()*16)
+        var ind1=Math.floor(Math.random()*16)
+        var chr=str[ind]
+        var chr1=str[ind1]
+        color+=chr 
+        color1+=chr1
+       }
+      //  dv=dv+"<div onclick='demo1(this)' style='background:"+color+";border:2px groove"+color1+";'>"+color+"</div>"
+       dv=dv+"<tr><td style='border:4px groove"+color+";color:"+color1+"'>Amit singh </td> <td style='border:4px groove"+color1+";color:"+color+"'>Alpha testing</td><td style='border:4px groove"+color+";color:"+color1+"'>Amit singh </td><td style='border:4px groove"+color1+";color:"+color+"'>Alpha testing</td></tr>"
+       
+    }
+    dv=dv+"</table>"
+    document.querySelector("p").innerHTML=dv
+   
+    }
+    setInterval(demo,2000)
+
+    </script>
+</body>
+</html>
